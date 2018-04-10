@@ -14,6 +14,7 @@ class pegawai extends CI_Controller{
 	public function create()
 	{
 		$this->load->helper('url','form');
+		
 		$this->load->library('form_validation');
 
 		if ($this->form_validation->run()==FALSE){
