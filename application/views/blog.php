@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script type="text/javascript" src="././assets/js/bootstrap.js"></script>
 </head>
 </nav>
-<div class="btn-default"><h1><b>KONTAK</b></h1></div>
+		<div class="jumbotron"><h1><b>blog</b></h1></div>
 <BR><BR>
 </body>
 </html>

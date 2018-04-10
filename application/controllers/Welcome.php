@@ -38,4 +38,8 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('home');
 	}
+	public function blog()
+	{
+		$this->load->view('blog');
+	}
 }
