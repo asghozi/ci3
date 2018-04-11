@@ -1,4 +1,5 @@
 <?php 
+
 	echo 'Sukses Simpan Data';
 	echo '<br>';
 	echo anchor('index.php/pegawai/', 'Ke beranda');

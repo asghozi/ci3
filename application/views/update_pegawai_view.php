@@ -31,6 +31,7 @@
  						echo validation_errors();
 
  					?>
+ 					
 
  					<div class="form-group">
  						<label>Nama<font color="red">*</font></label>

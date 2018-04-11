@@ -25,6 +25,7 @@ class pegawai extends CI_Controller{
     	}
     }
  	
+ 	
  	public function update($id) {
     	$this->load->model('pegawai_model');
     	$this->form_validation->set_rules('nama', 'Nama Pegawai', 'trim|required');
