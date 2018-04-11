@@ -86,7 +86,7 @@
         <div class="col-lg-8 mx-auto">
           <h2></h2>
           <p></p>
-          <a href="" class="btn btn-default btn-lg">Visit tambah Data </a>
+          <a href="index.php/pegawai/" class="btn btn-default btn-lg">tambah Data Pegawai </a>
         </div>
       </div>
     </section>

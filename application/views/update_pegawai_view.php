@@ -24,31 +24,32 @@
  			<div class="container-fluid">
  				<div class="col-md-4"></div>
  				<div class="col-md-4">
- 					<h1>Tambah data pegawai</h1>
+ 					<h1>Edit data pegawai</h1>
  					<?php 
- 						echo form_open('index.php/pegawai/create'); 
+ 						echo form_open('index.php/pegawai/update/'.$this->uri->segment(3));
+ 						
  						echo validation_errors();
 
  					?>
 
  					<div class="form-group">
  						<label>Nama<font color="red">*</font></label>
- 						<input type="text" class="form-control" id="nama" name="nama" placeholder="Input field">
+ 						<input type="text" class="form-control" id="nama" name="nama" value="<?php echo $pegawai[0]->namaPegawai ?>">
  					</div>
  					<div class="form-group">
  						<label>Alamat<font color="red">*</font></label>
- 						<input type="text" class="form-control" id="alamat" name="alamat" placeholder="Input field">
+ 						<input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $pegawai[0]->alamatPegawai ?>">
  					</div>
  					<div class="form-group">
  						<label>Tanggal Lahir<font color="red">*</font></label>
- 						<input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
+ 						<input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?php echo $pegawai[0]->tglLahir ?>">
  					</div>
  					
  					<font color="red"><i>* Wajib diisi</i></font>
 					<br>
 					<br>
 
- 					<button type="submit" class="btn btn-primary">Submit</button>
+ 					<button type="submit" class="btn btn-primary">Update</button>
  					<?php echo form_close(); ?>
  				</div>
  				<div class="col-md-4"></div>
