@@ -28,8 +28,7 @@
  					<?php 
  						echo form_open('index.php/pegawai/create'); 
  						echo validation_errors();
-
-
+s
  					?>
 
  					<div class="form-group">
