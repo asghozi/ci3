@@ -16,11 +16,10 @@ class pegawai extends CI_Controller{
     	$this->form_validation->set_rules('nama', 'Nama Pegawai', 'trim|required');
     	$this->form_validation->set_rules('alamat', 'Alamat Pegawai', 'trim|required');
     	$this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir Pegawai', 'trim|required');
-        $this->form_validation->set_rules('title', 'Judul', 'required|is_unique[blogs.post_title]',
+       
             array(
                 'required'      => 'Isi %s donk, males amat.',
-                'is_unique'     => 'Judul ' .$this->input->post('title'). ' sudah ada bosque.'
-            ));
+            );
 
     	if ($this->form_validation->run()==FALSE) {
     		$this->load->view('tambah_pegawai_view');
@@ -37,11 +36,9 @@ class pegawai extends CI_Controller{
     	$this->form_validation->set_rules('nama', 'Nama Pegawai', 'trim|required');
     	$this->form_validation->set_rules('alamat', 'Alamat Pegawai', 'trim|required');
     	$this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir Pegawai', 'trim|required');
-        $this->form_validation->set_rules('text', 'Konten', 'required|min_length[8]',
             array(
                 'required'      => 'Isi %s lah, hadeeh.',
-                'min_length'    => 'Isi %s kurang panjang bosque.',
-             ));
+             );
 
     	$data['pegawai']=$this->pegawai_model->getPegawai($id);
 

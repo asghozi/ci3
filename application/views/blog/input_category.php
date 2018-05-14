@@ -24,23 +24,20 @@
  			<div class="container-fluid">
  				<div class="col-md-4"></div>
  				<div class="col-md-4">
- 					<h1>Tambah data pegawai</h1>
+ 					<h1>Tambah postingan</h1>
  					<?php 
- 						echo form_open('index.php/pegawai/create'); 
+ 						echo form_open('category/create'); 
  						echo validation_errors();
+
  					?>
 
  					<div class="form-group">
- 						<label>Nama<font color="red">*</font></label>
- 						<input type="text" class="form-control" id="nama" name="nama" placeholder="Input field">
+ 						<label>Nama Kategori<font color="red">*</font></label>
+ 						<input type="text" class="form-control" id="cat_name" name="cat_name" placeholder="Input field">
  					</div>
  					<div class="form-group">
- 						<label>Alamat<font color="red">*</font></label>
- 						<input type="text" class="form-control" id="alamat" name="alamat" placeholder="Input field">
- 					</div>
- 					<div class="form-group">
- 						<label>Tanggal Lahir<font color="red">*</font></label>
- 						<input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
+ 						<label>Deskripsi</label>
+ 						<input type="text" class="form-control" id="cat_description" name="cat_description" size="255" placeholder="Input field">
  					</div>
  					
  					<font color="red"><i>* Wajib diisi</i></font>

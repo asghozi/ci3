@@ -24,24 +24,30 @@
  			<div class="container-fluid">
  				<div class="col-md-4"></div>
  				<div class="col-md-4">
- 					<h1>Tambah data pegawai</h1>
+ 					<h1>Edit postingan</h1>
  					<?php 
- 						echo form_open('index.php/pegawai/create'); 
+ 						echo form_open('blog/update/'.$this->uri->segment(3)); 
  						echo validation_errors();
+
  					?>
 
  					<div class="form-group">
- 						<label>Nama<font color="red">*</font></label>
- 						<input type="text" class="form-control" id="nama" name="nama" placeholder="Input field">
+ 						<label>Judul<font color="red">*</font></label>
+ 						<input type="text" class="form-control" id="judul" name="judul" placeholder="Input field" value="<?php echo $post[0]->judul ?>">
  					</div>
  					<div class="form-group">
- 						<label>Alamat<font color="red">*</font></label>
- 						<input type="text" class="form-control" id="alamat" name="alamat" placeholder="Input field">
+ 						<label>Isi Konten</label>
+ 						<input type="text" class="form-control" id="konten" name="konten" size="255" placeholder="Input field" value="<?php echo $post[0]->konten ?>">
  					</div>
  					<div class="form-group">
- 						<label>Tanggal Lahir<font color="red">*</font></label>
- 						<input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
+ 						<label>Kategori</label>
+ 						<select class="form-control" name="category">
+ 							<?php foreach ($categorylist as $row) { ?>
+ 							<option value="<?php echo $row['id'] ?>"><?php echo $row['cat_name']; ?></option>
+ 							<?php } ?>
+ 						</select>
  					</div>
+
  					
  					<font color="red"><i>* Wajib diisi</i></font>
 					<br>

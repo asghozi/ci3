@@ -87,6 +87,7 @@
           <h2></h2>
           <p></p>
           <a href="index.php/pegawai/" class="btn btn-default btn-lg">tambah Data Pegawai </a>
+          <a href="index.php/blog/" class="btn btn-default btn-lg">Blog saya </a>
         </div>
       </div>
     </section>
