@@ -21,6 +21,7 @@
 	<body>
 		<h1 class="text-center">List Pegawai</h1>
 	<?php echo "<a href='".base_url('index.php/pegawai/create')."' class='btn btn-primary'>Tambah</a>"; ?>
+	<?php echo "<a href='".base_url('index.php/pegawai/datatable')."' class='btn btn-success'>DataTable</a>"; ?>
 		
 		<table class="table table-hover">
 				<thead>

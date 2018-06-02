@@ -29,6 +29,14 @@ class pegawai extends CI_Controller{
     	}
         
     }
+
+    public function datatable()
+    {
+        $this->load->model('pegawai_model');
+        $artikel['data'] = $this->pegawai_model->getDataPegawaiSemua();
+
+        $this->load->view('Pegawai_dt',$artikel);
+    }
  	
  	
  	public function update($id) {

@@ -26,7 +26,7 @@
  				<div class="col-md-4">
  					<h1>Edit data pegawai</h1>
  					<?php 
- 						echo form_open('index.php/pegawai/update/'.$this->uri->segment(3));
+ 						echo form_open('pegawai/update/'.$this->uri->segment(3));
  						
  						echo validation_errors();
 

@@ -26,7 +26,7 @@
  				<div class="col-md-4">
  					<h1>Tambah data pegawai</h1>
  					<?php 
- 						echo form_open('index.php/pegawai/create'); 
+ 						echo form_open('pegawai/create'); 
  						echo validation_errors();
  					?>
 
