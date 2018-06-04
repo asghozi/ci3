@@ -36,6 +36,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#login">Login</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
             </li>
             <li class="nav-item">
@@ -72,7 +75,7 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>About Profil</h2>
-            <p>This theme features stock photos by me
+            <p>Hidup ini terasa about sekali
             </p>
             <p></p>
           </div>
