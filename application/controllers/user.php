@@ -36,6 +36,7 @@ class User extends CI_Controller{
 
             redirect('blog');
         }
+    }
 
          // Log in user
     public function login(){
@@ -62,14 +63,15 @@ class User extends CI_Controller{
         	$user_data = array(
             	'user_id' => $user_id,
             	'username' => $username,
-            	'logged_in' => true
+            	'logged_in' => true,
+                'level' => $this->user_model->get_user_level($user_id),
         );
                 $this->session->set_userdata($user_data);
 
         // Set message
         $this->session->set_flashdata('user_loggedin', 'You are now logged in');
 
-        redirect('blog');
+        redirect('user/dashboard');
     } else {
         // Set message
         $this->session->set_flashdata('login_failed', 'Login is invalid');
@@ -77,8 +79,9 @@ class User extends CI_Controller{
         redirect('user/login');
     }
 	}
-}        
-}}
+}
+        
+
     // Log user out
     public function logout(){
         // Unset user data
@@ -91,4 +94,5 @@ class User extends CI_Controller{
 
         redirect('user/login');
     }
+}
 ?>
