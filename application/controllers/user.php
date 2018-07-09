@@ -6,25 +6,18 @@ class User extends CI_Controller{
         parent::__construct();
                 
         $this->load->library('form_validation');
-        $this->load->helper('MY');
         $this->load->model('user_model');
     }
     // Register user
     public function register(){
-        $data['page_title'] = 'Pendaftaran User';
 
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('username', 'Username', 
 			'required|is_unique[users.username]');
-        $this->form_validation->set_rules('email', 'Email', 
-			'required|is_unique[users.email]');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('password2', 'Konfirmasi Password', 
 			'matches[password]');
         if($this->form_validation->run() === FALSE){
-            $this->load->view('templates/header');
-            $this->load->view('users/register', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('users/register');
         } else {
             // Encrypt password
             $enc_password = md5($this->input->post('password'));
@@ -34,21 +27,19 @@ class User extends CI_Controller{
             // Tampilkan pesan
             $this->session->set_flashdata('user_registered', 'Anda telah teregistrasi.');
 
-            redirect('blog');
+            redirect('blog/');
         }
     }
 
          // Log in user
     public function login(){
-        $data['page_title'] = 'Log In';
+        
 
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
 
         if($this->form_validation->run() === FALSE){
-            $this->load->view('templates/header');
-            $this->load->view('users/login', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('users/login');
         } else {
         // Get username
     	$username = $this->input->post('username');
@@ -56,22 +47,22 @@ class User extends CI_Controller{
     	$password = md5($this->input->post('password'));
 
 	    // Login user
-    	$user_id = $this->user_model->login($username, $password);
+    	$id_user = $this->user_model->login($username, $password);
 
-    	if($user_id){
+    	if($id_user){
         	// Buat session
         	$user_data = array(
-            	'user_id' => $user_id,
+            	'id_user' => $id_user,
             	'username' => $username,
             	'logged_in' => true,
-                'level' => $this->user_model->get_user_level($user_id),
+                'level' => $this->user_model->get_user_level($id_user),
         );
                 $this->session->set_userdata($user_data);
 
         // Set message
         $this->session->set_flashdata('user_loggedin', 'You are now logged in');
 
-        redirect('user/dashboard');
+        redirect('blog/');
     } else {
         // Set message
         $this->session->set_flashdata('login_failed', 'Login is invalid');
@@ -86,7 +77,7 @@ class User extends CI_Controller{
     public function logout(){
         // Unset user data
         $this->session->unset_userdata('logged_in');
-        $this->session->unset_userdata('user_id');
+        $this->session->unset_userdata('id_user');
         $this->session->unset_userdata('username');
 
         // Set message

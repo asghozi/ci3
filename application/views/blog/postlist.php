@@ -1,4 +1,8 @@
-
+<?php
+	if (!$this->session->userdata('logged_in')) { 
+		redirect('user/login','refresh');
+	 }
+ ?>
 <html>
 <head>
 	<title>My Post List</title>
@@ -24,10 +28,15 @@
 
 
 </nav>
+<p align="right">
+<a href="<?php echo base_url('index.php/user/logout') ?>" class="btn btn-warning">Logout</a>
+</p>
+<?php if ($this->session->userdata('level') != 'Noob') { ?>
 <p align="center">
 <a href="<?php echo base_url('index.php\blog\create'); ?>" class="btn btn-success">Create Post</a>
 <a href="<?php echo base_url('index.php\category'); ?>" class="btn btn-success">Category</a>
 </p>
+<?php } ?>
 <div class="container">
 	
 		<?php if( !empty($postlist) ) : ?>
@@ -56,7 +65,10 @@
 									<div class="btn-group">
 										<!-- Untuk link detail -->
 										<a href="<?php echo base_url(). 'index.php/blog/read/' . $key->id_post ?>" class="btn btn-outline-secondary">Baca</a>
-										<a href="<?php echo base_url(). 'index.php/blog/update/' . $key->id_post ?>" class="btn btn-outline-secondary">Edit</a>
+										<?php if ($this->session->userdata('level') != 'Noob') { ?>
+											<a href="<?php echo base_url(). 'index.php/blog/update/' . $key->id_post ?>" class="btn btn-outline-secondary">Edit</a>
+										<?php } ?>
+										
 									</div>
 
 								</div>

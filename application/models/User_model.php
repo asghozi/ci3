@@ -6,18 +6,15 @@
    public function register($enc_password){
        // Array data user
        $data = array(
-           'nama' => $this->input->post('nama'),
-           'email' => $this->input->post('email'),
            'username' => $this->input->post('username'),
            'password' => $enc_password,
-           'kodepos' => $this->input->post('kodepos'),
-           'fk_level _id' => $this->input->post('membership'),
+           'level' => $this->input->post('type'),
        );
 
        // Insert user
        return $this->db->insert('users', $data);
    }
-}
+
 // Proses login user
    public function login($username, $password){
        // Validasi
@@ -28,23 +25,23 @@
 
 
        if($result->num_rows() == 1){
-           return $result->row(0)->user_id;
+           return $result->row(0)->id_user;
        } else {
            return false;
        }
    }
-   public function get_user_level($user_id) {
+   public function get_user_level($id_user) {
        // Dapatkan data level
-       $this->db->select('fk_level_id');
-       $this->db->where('user_id', $user_id);
+       $this->db->select('level');
+       $this->db->where('id_user', $id_user);
 
        $result = $this->db->get('users');
 
        if ($result->num_rows() == 1) {
-           return $result->row(0)->fk_level_id;
+           return $result->row(0)->level;
        } else {
            return false;
        }
    }
-
+}
 ?>
